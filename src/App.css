@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: #283824;
+ color: white;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+a{
   color: white;
 }
+/* ___________Header________________ */
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
+header ul{
+  display: flex;
+}
+header ul li{
+  margin: 0px 30px;
+  cursor: pointer;
+}
+/* __________________Home_________________ */
+.home_div{
+  width: 100%;
+  height: calc(100vh - 80px);
+  background-color: #283824;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+/* ________________Search______________ */
+.all_div{
+  display: flex;
+  padding: 0px 50px;
+  gap: 18px;
 
-.App-link {
-  color: #61dafb;
+}
+.search_div{
+  width: 100%;
+  height:100px;
+  display:flex;
+  align-items: center;
+  padding: 0px 50px;
+
+}
+.search_input{
+  width: 500px;
+  max-width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.176);
+  padding: 8px;
+}
+.search_input input{
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 0px 10px;
+  color: white;
+}
+.search_add{
+  border: 1px solid #ffffff32;
+  padding: 0px 8px;
+  height: 300px;
+}
+.add_header{
+  background-color: #7ba67113;
+  padding: 10px 0px;
+}
+.search_add h1{
+  padding-bottom: 16px;
+
+}
+.search_add input{
+  padding: 13px 7px;
+  width: 100%;
+  margin: 9px 0px;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.273);
+}
+.search_add button{
+  padding: 8px 35px;
+  margin: 10px 0px;
+  border: 1px solid rgba(255, 255, 255, 0.261);
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+/* __________________Product_______________ */
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#customers td, #customers th {
+  border: 1px solid rgba(221, 221, 221, 0.204);
+  padding: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
+#customers tr:hover {background-color: #7ba67113;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #7ba67113;
+  color: white;
+}
+#customers td button{
+  cursor: pointer;
+  padding: 5px 12px;
+  color: white;
+  border: 1px solid rgba(128, 128, 128, 0.344);
+  background-color: transparent;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+}
+/* ___________________Loading_____________________ */
+
+.loader_div{
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 1300px;
+  margin: 50px auto;
+}
+
+.loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, transparent 40%, #e5f403);
+  animation: animate 2s linear infinite;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  bottom: 6px;
+  right: 6px;
+  background: #283824;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background: linear-gradient(45deg, transparent, transparent 40%, #e5f403);
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 1;
+}
+
+@keyframes animate {
+  0% {
     transform: rotate(0deg);
+    filter: hue-rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+    filter: hue-rotate(360deg);
   }
+}
+/* ____________________Detail___________________ */
+.detail_div{
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 130px);
+}
+.detail_div h1{
+  padding: 10px 0px;
+}
+span{
+  font-size: 15px;
+  padding: 0px 10px;
+}
+.detail_div button{
+  padding: 8px 25px;
+  margin: 10px 0px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.284);
+  background-color: transparent;
+  color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
