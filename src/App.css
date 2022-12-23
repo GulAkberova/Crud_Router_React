@@ -66,18 +66,23 @@ header ul li{
 }
 .search_add{
   border: 1px solid #ffffff32;
-  padding: 0px 8px;
+  /* padding: 0px 8px; */
   height: 300px;
 }
 .add_header{
   background-color: #7ba67113;
-  padding: 10px 0px;
+  padding: 10px 10px;
 }
 .search_add h1{
   padding-bottom: 16px;
 
 }
+.search_add form{
+  padding: 10px 10px;
+
+}
 .search_add input{
+
   padding: 13px 7px;
   width: 100%;
   margin: 9px 0px;
@@ -94,6 +99,8 @@ header ul li{
   cursor: pointer;
   color: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  margin-left: 10px;
+
 }
 /* __________________Product_______________ */
 #customers {
@@ -203,4 +210,34 @@ span{
   background-color: transparent;
   color: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.wishlist_div{
+  padding: 40px 60px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.wish_div{
+  width: 24%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.257);
+  border-radius: 4px;
+}
+.wish_div h1{
+  padding: 10px 0px;
+}
+.wish_div h1 span{
+  font-size: 16px;
+}
+.wish_div button{
+  padding: 10px 30px;
+  margin: 10px 0px;
+
+}
+.empty{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

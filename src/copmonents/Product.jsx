@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import {wishlistContext} from './WishlistContext'
 function Product() {
+
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const[name,setName]=useState('')
   const[unitPrice,setPrice]=useState(0)
+  let {favorites,setFavorites} = useContext(wishlistContext)
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -24,7 +26,7 @@ function Product() {
     navigate(`/detail/${id}`);
   };
   const handleDelete = (t) => {
-    const newUsers = users.filter((a) => a.id != t);
+    const newUsers = users.filter((a) => a.id !== t);
     setUsers(newUsers);
   };
   const handleAdd=()=>{
@@ -36,6 +38,14 @@ function Product() {
     setUsers([...users,newProduct])
     setName('')
     setPrice(0)
+  }
+  const handleWishlist=(item)=>{
+    const favoritesControl=favorites.find(q=>q.id === item.id);
+    
+    if(!favoritesControl){
+      setFavorites([...favorites,item])
+    }
+
   }
   return (
     <>
@@ -59,6 +69,7 @@ function Product() {
             <th>Name</th>
             <th>unitPrice</th>
             <th>Delete</th>
+            <th>Wishlist</th>
             <th>Detail</th>
           </tr>
         </thead>
@@ -85,6 +96,9 @@ function Product() {
                       <button onClick={() => handleDelete(a.id)}>Delete</button>
                     </td>
                     <td>
+                      <button onClick={()=>handleWishlist(a)}>Wishlist</button>
+                    </td>
+                    <td>
                       <button onClick={() => goDetail(a.id)}>
                         Go to detail
                       </button>
@@ -97,7 +111,8 @@ function Product() {
       </table>
       <div className="search_add">
         <div className="add_header"><h2>New Product Add</h2></div>
-             <label>
+            <form>
+            <label>
                 Name
                 <input type={'text'} placeholder='...'value={name} onChange={(e)=>setName(e.target.value)}/>
              </label>
@@ -105,7 +120,9 @@ function Product() {
                 UnitPrice
                 <input type={'number'} placeholder='...' value={unitPrice} onChange={(e)=>setPrice(e.target.value)}/>
              </label>
-             <button onClick={()=>handleAdd()}>Add</button>
+            </form>
+            <button onClick={()=>handleAdd()}>Add</button>
+
         </div>
       </div>
     </>
